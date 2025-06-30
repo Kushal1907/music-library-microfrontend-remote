@@ -1,13 +1,17 @@
+<!-- This content should be saved as: C:\Users\Asus\OneDrive\Desktop\New folder\music-library-app\dist\index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Library (Standalone)</title>
+    <!-- Favicon -->
     <link rel="icon" href="/music.jpg" />
+    <!-- Roboto font for consistency -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet" />
+    <!-- Load the compiled CSS from the UMD bundle -->
     <link rel="stylesheet" href="/music-library-app.css" />
     <style>
       /* Optional: Add basic body styles if not handled by your bundled CSS */
@@ -26,14 +30,15 @@
     </style>
   </head>
   <body>
+    <!-- This div will be the mounting point for your React app -->
     <div id="music-library-standalone-root"></div>
 
+    <!-- Load the compiled UMD JavaScript bundle -->
     <script src="/music-library-app.umd.js"></script>
     <script>
       // This script will call your global rendering function after the UMD bundle loads
       window.onload = () => {
         if (window.renderMusicLibrary) {
-          // Call the render function to mount the app into the designated div
           window.renderMusicLibrary("music-library-standalone-root", {
             /* Pass any initial props needed for standalone mode, e.g. mock user if testing logout */
           });
