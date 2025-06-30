@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Library (Standalone)</title>
+    <link rel="icon" href="/music.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/music-library-app.css" />
+    <style>
+      /* Optional: Add basic body styles if not handled by your bundled CSS */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(
+          to bottom right,
+          #581c87,
+          #1e3a8a,
+          #312e81
+        ); /* Your desired background */
+        font-family: "Roboto", sans-serif; /* Ensure font is applied */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="music-library-standalone-root"></div>
+
+    <script src="/music-library-app.umd.js"></script>
+    <script>
+      // This script will call your global rendering function after the UMD bundle loads
+      window.onload = () => {
+        if (window.renderMusicLibrary) {
+          // Call the render function to mount the app into the designated div
+          window.renderMusicLibrary("music-library-standalone-root", {
+            /* Pass any initial props needed for standalone mode, e.g. mock user if testing logout */
+          });
+        } else {
+          console.error(
+            "Music Library rendering function (window.renderMusicLibrary) not found. Did the UMD bundle load correctly?"
+          );
+        }
+      };
+    </script>
+  </body>
+</html>
